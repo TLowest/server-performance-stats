@@ -23,3 +23,26 @@ Additional system details include:
 - ❌ Failed Login Attempts
 
 ### Usage
+1. Download the script:
+```BASH
+wget https://raw.githubusercontent.com/TLowest/server-performance-stats/refs/heads/main/server-stats.sh
+```
+2. Make the script executable:
+```BASH
+chmod +x server-stats.sh
+```
+3. Run the script:
+```BASH
+./server-stats.sh
+```
+> You may need to run the script with elevated privileges (e.g., `sudo ./server-stats.sh`) to access logs such as failed login attempts.
+
+### Notes & Best Practices
+- Portability:
+  - The script uses only standard Unix/Linux utitlies (`top`,`df`,`ps`, etc.) ensuring compatibility across most distributions.
+- Dependency Check:
+  - Before running, it checks if required commands are installed to prevent runtime errors.
+- Security Conscious:
+  - No use of `sudo` or root-only commands unless required by the user.
+  - Protects against intrruptions using `trap`.
+  - Uses `awk`,`head`, and `grep` for safe output parsing.
